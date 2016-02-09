@@ -26,6 +26,6 @@ urlpatterns = [
 	url(r'^recipe/$', 'main.views.recipe_list'),
 	url(r'^list/$', 'main.views.list_recipes'),
 	url(r'^detail/(?P<slug>[\w-]+)/$', 'main.views.recipes_detail'),
-	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}), #for images
 	url(r'^recipecreate/$', RecipeCreate.as_view()),
 ]

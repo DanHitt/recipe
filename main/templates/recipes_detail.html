@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block headline %}
+{% block blockone %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,27 +24,46 @@
 
 <body>
 
-	<div class="container" style="background-color: white;">
-	<div class="row">
-		<div style="float:right;">
-			<img src="/media/{{ recipe.image }}">
-		</div>
-		<div style="float:left;">
-			<h3>Ingredients for {{ recipe }}</h3>
-				{% for ingredient in ingredients %}
-					<span style="margin-left: 15px;"{{ ingredient|linebreaks }}
-				{% endfor %}
-		<a href="/recipe/" class="btn btn-info" style="margin: 15px;" role="button">Back to Recipes</a>
-		</div>
-	</div>
+	<div class="container">
 
+		<section id="one" class="wrapper style1">
 
-
-
-	
-
+						<div class="inner">
+							<article class="feature left">
+								<span class="image2" style="background-image: url('/media/{{ recipe.image }}')"></span>
+								<div class="content">
+									<span class="text70">{{ recipe.name|safe }}</span>
+									<ul class="actions">
+										<li>
+											{% for ingredient in ingredients %}
+												<span style="margin-left: 15px;"{{ ingredient|linebreaks }} </span>
+											{% endfor %}
+										</li>
+									</ul>
+									<li>
+										<a href="/" class="button alt">back</a>
+									</li>
+									<ul class="icons">
+										<li><a href="https://www.facebook.com/" class="icon fa-facebook">
+											<span class="label">Facebook</span>
+										</a></li>
+										<li><a href="#" class="icon fa-twitter">
+											<span class="label">Twitter</span>
+										</a></li>
+										<li><a href="#" class="icon fa-instagram">
+											<span class="label">Instagram</span>
+										</a></li>
+										<li><a href="#" class="icon fa-linkedin">
+											<span class="label">LinkedIn</span>
+										</a></li>
+									</ul>
+								
+								</div>
+							</article>
+						</div>
+					</section>	
 	</div><!--container-->
 	
 
 </body>
-{% endblock headline %}
+{% endblock blockone %}

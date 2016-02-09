@@ -7,7 +7,31 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
+/* Dan Added CSS*/
+.centerText {
+	text-align: center;
+}
+.centerImg {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
 
+.text70 {
+	font-size: 2.2em;
+	
+}
+
+IMG.displayed {
+	height: 300px;
+	width: 300px;
+	object-fit: contain;
+}
+
+a:link .nounderline {
+	text-decoration: none;
+}
+/* End Dan Added CSS*/
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -2183,10 +2207,28 @@
 /* Image */
 
 	.image {
-		border-radius: 0;
 		border: 0;
 		display: inline-block;
 		position: relative;
+		background-position: left;
+		border-radius: 20px 0px 0px 20px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 50%;
+		height: 250px;
+
+	}
+		.image2 {
+		border: 0;
+		display: inline-block;
+		position: relative;
+		background-position: left;
+		border-radius: 20px 20px 20px 20px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 50%;
+		height: 250px;
+
 	}
 
 		.image img {
@@ -2713,6 +2755,7 @@
 		-ms-align-items: center;
 		align-items: center;
 		margin-bottom: 6em;
+		border-radius: 25px;
 	}
 
 		.feature:last-child {
@@ -2739,11 +2782,13 @@
 
 			.feature .image img {
 				max-width: 100%;
+				border-radius: 20px 0px 0px 20px;
 			}
 
 		.feature .content {
 			padding: 2em 3em 0.1em 3em;
 			width: 52%;
+			
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -2754,6 +2799,7 @@
 
 				.feature .content {
 					padding: 1em 2em 0.1em 2em;
+					text-align: center;
 				}
 
 		}
@@ -2897,6 +2943,9 @@
 
 			.wrapper.style1 .feature {
 				background-color: #fff;
+				box-shadow: 10px 10px 5px #888888;
+				border-width: 2px 2px 2px 2px;	
+				border-style: solid;
 			}
 
 			.wrapper.style1 label {
