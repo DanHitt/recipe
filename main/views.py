@@ -35,22 +35,9 @@ def recipe_list_API_view(request):
 def base(request):
 
 	context={}
+	recipes = Recipe.objects.all()
 
-	recipes = []
-	print recipes
-	for x in range(3):
-		print x
-		random_recipe = Recipe.objects.all().order_by('?')[1]
-		while True:
-			
-			if random_recipe.image:
-				break
-			else:
-				random_recipe = Recipe.objects.all().order_by('?')[1]
-
-		recipes.append(random_recipe)
-
-	context["recipes"] = recipes 
+	context["recipes"] = recipes
 
 	return render(request, "base.html", context)
 
@@ -61,6 +48,7 @@ def list_recipes(request):
 	context = {}
 	recipes = Recipe.objects.all()
 	context["recipes"] = recipes
+
 
 	return render(request, "list_recipes.html", context)
 
@@ -77,6 +65,7 @@ def recipe_list(request):
 def recipes_detail(request, slug):
 	# request_context=ReqestContext(request)
 	context = {}
+
 	recipe = Recipe.objects.get(slug=slug)
 	ingredient_list = []
 	for ingredient in recipe.ingredients.all():
@@ -85,6 +74,23 @@ def recipes_detail(request, slug):
 	context['recipe'] = recipe
 	images = Recipe.objects.all()
 	context['image'] = images 
+
+
+
+	random_recipes = []
+	for x in range(3):
+		print x
+		random_recipe = Recipe.objects.all().order_by('?')[1]
+		while True:
+			
+			if random_recipe.image:
+				break
+			else:
+				random_recipe = Recipe.objects.all().order_by('?')[1]
+
+		random_recipes.append(random_recipe)
+
+	context["random_recipes"] = random_recipes 
 
 	return render(request, "recipes_detail.html", context)
 

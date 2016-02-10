@@ -18,6 +18,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<!-- This is stuff facebook needs, in part, to *share to facebook* -->
+	<meta property="og:url"                content="http://www.boulderutah.com" />
+	<meta property="og:type"               content="Recipe" />
+	<meta property="og:title"              content="Pretty Much Yummy" />
+	<meta property="og:image"              content="" />
+
 
 	<title>Document</title>
 </head>
@@ -26,11 +32,13 @@
 
 	<div class="container">
 
+
+
 		<section id="one" class="wrapper style1">
 
 						<div class="inner">
 							<article class="feature left">
-								<span class="image2" style="background-image: url('/media/{{ recipe.image }}')"></span>
+								<span class="image3" style="background-image: url('/media/{{ recipe.image }}')"></span>
 								<div class="content">
 									<span class="text70">{{ recipe.name|safe }}</span>
 									<ul class="actions">
@@ -60,8 +68,47 @@
 								
 								</div>
 							</article>
+
+							
 						</div>
 					</section>	
+
+
+			{% for recipe in random_recipes %}
+					<section id="one" class="wrapper style1">
+
+						<div class="inner">
+							<article class="feature left">
+								<span class="image" style="background-image: url('/media/{{ recipe.image }}')"></span>
+								<div class="content">
+									<span class="text70">{{ recipe.name|safe }}</span>
+									<ul class="actions">
+										<li>
+											<a href="/detail/{{ recipe.slug }}" class="button alt">How Do I Make This</a>
+										</li>
+									</ul>
+									<ul class="icons">
+										<li><a href="https://www.facebook.com/" class="icon fa-facebook">
+											<span class="label">Facebook</span>
+										</a></li>
+										<li><a href="#" class="icon fa-twitter">
+											<span class="label">Twitter</span>
+										</a></li>
+										<li><a href="#" class="icon fa-instagram">
+											<span class="label">Instagram</span>
+										</a></li>
+										<li><a href="#" class="icon fa-linkedin">
+											<span class="label">LinkedIn</span>
+										</a></li>
+									</ul>
+								
+								</div>
+							</article>
+						</div>
+					</section>	
+  			{% endfor %}
+
+
 	</div><!--container-->
 	
 
