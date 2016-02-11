@@ -10,6 +10,6 @@ $(document).ready(function(){
 		toastr.remove()
 		toastr.info(quotes[randomNumber]);
 	})
-	// $('*nav')
+	$('*nav')
 
 });
