@@ -33,8 +33,8 @@ class Recipe(models.Model):
 	def get_absolute_url(self):
 		return reverse('main.views.list_recipes')
 
-	def save(self):
+	def save(self, *args, **kwargs):
 		slug = '%s' % (self.name)
 		unique_slugify(self, slug)
-		super(Recipe, self).save()
+		super(Recipe, self).save(*args, **kwargs)
 
