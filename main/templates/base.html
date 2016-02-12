@@ -18,16 +18,14 @@
 
 
 
-		<link rel="stylesheet" type="html/css" href="{% static 'css/styles.css' %}">
-		
-
 
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href=" {% static 'css/main.css' %}" />
+		<link rel="stylesheet" type="html/css" href=" {% static 'css/main.css' %}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+
 	</head>
 	<body class="landing">
 
@@ -35,16 +33,15 @@
 			<header id="header" class="alt">
 				<h4><a href="/recipecreate">Add A Recipe</a></h4>
 				
-				<a href="#nav">Menu</a>
+				<span id="menu">Menu</span>
 			</header>
 
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="links">
-					<li><a href="/">Home</a></li>
-					<li><a href="/">Some Examples</a></li>
-					<li><a href="/list">List of All Recipes</a></li>
-				</ul>
+					<a href="/">Home</a><br />
+					<a href="/list">Print Recipes</a>
+			
 			</nav>
 
 		<!-- Banner -->
