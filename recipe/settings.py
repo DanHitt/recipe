@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '(6ikk$#(-n6=k%avf%6b_)mqfj$lr243#uiqr2bmfspf7l_dd^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True 
 
 ALLOWED_HOSTS = ["*"]
 
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     #3rd party apps
     'crispy_forms',
     'corsheaders',
+    'storages',
+    'boto',
     # my apps
     'main',
 ]
@@ -151,7 +153,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 CORS_ORIGIN_ALLOW_ALL = True
 
 
-try: 
+try:
     from local_settings import *
 except Exception as e:
     pass
+
+#Storage on S3 settings are stored as os.environs to keep settings.py clean
+if not DEBUG:
+   AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+   AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+   AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+   STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+   S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+   STATIC_URL = S3_URL
