@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'recipe.wsgi.application'
 
 
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES["default"].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES["default"].update(db_from_env)
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -152,9 +152,9 @@ except Exception as e:
 	pass
 
 try:
-    from secret_settings import *
+	from secret_settings import *
 except Exception as e:
-    pass
+	pass
 
 #Storage on S3 settings are stored as os.environs to keep settings.py clean
 # if not DEBUG:
